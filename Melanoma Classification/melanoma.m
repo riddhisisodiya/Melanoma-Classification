@@ -95,7 +95,7 @@ groundtruth = readcell('groundtruth.txt');
 groundtruth(:,1) = [];
 
 % perform classification using 10CV
-rng(1); % let's all use the same seed for the random number generator
+rng(1); 
 svm = fitcsvm(imfeatures, groundtruth);
 cvsvm = crossval(svm);
 pred = kfoldPredict(cvsvm);
@@ -119,7 +119,6 @@ end
 %% Colour Histograms
 function H = colourhist(image)
     % function that generates 8x8x8 RGB colour histogram from image
-    %implemented from lab exercises
      noBins = 8;  
      binWidth = 256 / noBins; 
      H = zeros(noBins, noBins, noBins); 
